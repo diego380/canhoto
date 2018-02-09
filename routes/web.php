@@ -11,14 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/****************INDEX*************/
 
-Auth::routes();
+Route::get('/',[
+	'as'=>'welcome',
+	'uses'=>'HomeController@index'
+])->name('index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+/**********PAGINA INICIAL*********/
+
+Route::get('home', [
+	'as'=>'home',
+	'uses'=>'HomeController@paginaInicial'
+]);
