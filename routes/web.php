@@ -16,13 +16,13 @@ Auth::routes();
 /****************INDEX*************/
 
 Route::get('/',[
-	'as'=>'welcome',
+	'as'=>'login',
 	'uses'=>'HomeController@index'
-])->name('index');
-
-/**********PAGINA INICIAL*********/
-
-Route::get('home', [
-	'as'=>'home',
-	'uses'=>'HomeController@paginaInicial'
 ]);
+
+Route::group(['prefix' => 'paineldecontrole','middleware'=>'auth'], function() {
+	Route::get('', [
+		'as'=>'paineldecontrole',
+		'uses'=>'HomeController@painelDeControle'
+	]);
+});

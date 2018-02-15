@@ -12,10 +12,16 @@
 <body>
     <div class="section"></div>
     <main>
+
         <center>
             <div class="section"></div>
             <div class="container">
                 <div class="z-depth-1 grey lighten-4 row corpo_login">
+                    @if(session()->has('erro'))
+                    <div class="card-panel red darken-1 row white-text">
+                        {{ session()->get('erro') }}
+                    </div>
+                    @endif
                     <form class="col s12" method="post" action="{{ route('login') }}">
                         {{ csrf_field() }}
                         <div class='row'>

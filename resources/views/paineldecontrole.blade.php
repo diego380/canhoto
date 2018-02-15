@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('titulo','Pagina Inicial')
+@section('titulo','Painel de controle')
 @section('conteudo')
 <div class="row">
 	<div class="col s12 m4">

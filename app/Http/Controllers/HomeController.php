@@ -8,10 +8,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('login');
     }
 
-    public function paginaInicial(){
-    	return view('home');
+    public function painelDeControle(){
+    	return view('paineldecontrole');
     }
 }
