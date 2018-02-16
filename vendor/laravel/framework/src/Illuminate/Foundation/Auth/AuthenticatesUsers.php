@@ -154,7 +154,7 @@ trait AuthenticatesUsers
 
         $request->session()->invalidate();
 
-        return redirect('/');
+        return redirect('/')->with('sucesso', 'Você se deslogou com sucesso!');;
     }
 
     /**

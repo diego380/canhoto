@@ -11,14 +11,14 @@
 |
 */
 
-Auth::routes();
-
 /****************INDEX*************/
 
 Route::get('/',[
-	'as'=>'login',
+	'as'=>'auth.login',
 	'uses'=>'HomeController@index'
-]);
+])->name('index');
+
+Auth::routes();
 
 Route::group(['prefix' => 'paineldecontrole','middleware'=>'auth'], function() {
 	Route::get('', [
