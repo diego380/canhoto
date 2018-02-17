@@ -9,18 +9,13 @@ main {
 	margin-top: 30px;
 }
 
-
-.parallax-container {
-	height:auto!important;
-	width:100%!important;
-	padding:45% 0 0;
+.register_login{
+	margin-top: 15px;
 }
 
-.parallax-conteiner img {
-	width:100% !important;
-	height:100% !important;
+#register_logo{
+	width: 200px;
 }
-
 
 .icon-block {
 	padding: 0 15px;

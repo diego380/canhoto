@@ -2,7 +2,7 @@
 @section('titulo','Home')
 @section('conteudo')
 
-<div id="login-page" class="row">
+<div id="login-page" class="row register_login">
 	<div class="col s12 z-depth-6 card-panel">
 		<form class="login-form" action="{{ route('login') }}" method="post">
 			{{ csrf_field() }}
@@ -23,7 +23,7 @@
 				<div class="input-field col s12">
 					<i class="material-icons prefix">vpn_key</i>
 					<input id="password" type="password" name="password">
-					<label for="password">Password</label>
+					<label for="password">Senha</label>
 				</div>
 			</div>
 			<div class="row">
