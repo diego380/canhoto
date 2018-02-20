@@ -36,4 +36,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-}
+
+    public function handleLogin(Request $req)
+    {
+        if(Auth::attempt(['email' => $req->email, 'password' => $req->password]))
+            {
+                return redirect('/paineldecontrole');
+            }       
+
+            return back()->withInput()->with('erro', 'Login Failed');
+        }
+    }

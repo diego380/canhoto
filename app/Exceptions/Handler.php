@@ -58,6 +58,6 @@ class Handler extends ExceptionHandler
     {
         return $request->expectsJson()
         ? response()->json(['message' => $exception->getMessage()], 401)
-        : redirect()->guest('/')->with('erro', 'Você precisa está logado para acessar está página!');
+        : redirect()->guest('/')->with('erro', 'Você precisa está logado para acessar esta página!');
     }
 }

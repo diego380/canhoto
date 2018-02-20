@@ -10,9 +10,9 @@
 </head>
 <body>
 	<header>
-		<nav class="indigo">
+		<nav class="red lighten-2">
 			<ul class="dropdown-content" id="comp-menu3">
-				<li><a href="#">Editar perfil</a></li>
+				<li><a href="{{ url('user/'.Auth::id()).'/edit' }}">Editar perfil</a></li>
 				<li class="active">
 					<a href="{{ route('logout') }}" onclick="event.preventDefault();
 					document.getElementById('logout-form').submit();">
@@ -24,8 +24,13 @@
 				</li>
 			</ul>
 			<ul class="dropdown-content" id="mob-menu3">
-				<li><a href="#">Editar perfil</a></li>
-				<li class="active"><a href="{{ route('logout') }}">Sair</a></li>
+				<li><a href="{{ url('user/'.Auth::id()).'/edit' }}">Editar perfil</a></li>
+				<li class="active">
+					<a href="{{ route('logout') }}" onclick="event.preventDefault();
+					document.getElementById('logout-form').submit();">
+						Sair
+					</a>
+				</li>
 			</ul>
 			<div class="nav-wrapper">
 				<li class="brand-logo">Logo</li>
@@ -33,7 +38,7 @@
 				<ul class="right hide-on-med-and-down" id="comp-menu">
 					<li class="active">
 						<a href="#" data-activates="comp-menu3" class="dropdown-button">
-							<i class="material-icons left">account_circle</i>Menu 3
+							<i class="material-icons left">account_circle</i>{{ Auth::user()->name }}
 							<i class="material-icons right">arrow_drop_down</i>
 						</a>
 					</li>
@@ -41,7 +46,7 @@
 				<ul class="side-nav" id="mobile-menu">
 					<li class="active">
 						<a href="#" data-activates="mob-menu3" class="dropdown-button">
-							<i class="material-icons left">account_circle</i>Menu 3
+							<i class="material-icons left">account_circle</i>{{ Auth::user()->name }}
 							<i class="material-icons right">arrow_drop_down</i>
 						</a>
 					</li>
@@ -52,8 +57,8 @@
 	<main>
 		@yield('conteudo')
 	</main>
-	<footer class="page-footer indigo">
-		<div class="footer-copyright indigo">
+	<footer class="page-footer">
+		<div class="footer-copyright red lighten-2">
 			<div class="container">
             	<b class="black-text">© Diego Melo</b>
             	<a class="grey-text text-lighten-4 right" href="https://github.com/diego380/canhoto">

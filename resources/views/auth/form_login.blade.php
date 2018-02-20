@@ -22,8 +22,8 @@
 	</div>
 	<div class="row">
 		<div class="input-field col s12 m12 l12  login-text">
-			<input type="checkbox" id="remember-me" />
-			<label for="remember-me">Lembre-me</label>
+			<input type="checkbox" id="remember" name="remember" />
+			<label for="remember">Lembre-me</label>
 		</div>
 	</div>
 	<div class="row">
