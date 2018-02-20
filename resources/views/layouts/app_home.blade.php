@@ -10,21 +10,25 @@
 	<link rel="icon" href="/img/favicon.png">
 </head>
 <body>
-	@if(session()->has('erro'))
-	<div class="card-panel red darken-1 row white-text">
-		{{ session()->get('erro') }}
-	</div>
-	@elseif(session()->has('sucesso'))
-	<div class="card-panel green darken-1 row white-text">
-		{{ session()->get('sucesso') }}
-	</div>
-	@elseif($errors->any())
-	<div class="card-panel red darken-1 row white-text">
-		<ul>
-			@foreach ($errors->all() as $error)
-			<li>{{ $error }}</li>
-			@endforeach
-		</ul>
+	<div class="row">
+		<div class="col s12 center">
+			@if(session()->has('erro'))
+			<div class="card-panel red darken-1 white-text">
+				<b>{{ session()->get('erro') }}</b>
+			</div>
+			@elseif(session()->has('sucesso'))
+			<div class="card-panel green darken-1 white-text">
+				<b>{{ session()->get('sucesso') }}</b>
+			</div>
+			@elseif($errors->any())
+			<div class="card-panel red darken-1 white-text">
+				<ul>
+					@foreach ($errors->all() as $error)
+					<li><b>{{ $error }}</b></li>
+					@endforeach
+				</ul>
+			</div>
+		</div>
 	</div>
 	@endif
 	@yield('conteudo')
