@@ -11,17 +11,17 @@
 </head>
 <body>
 	<div class="row">
-		<div class="col s12 center">
+		<div class="col s12">
 			@if(session()->has('erro'))
-			<div class="card-panel red darken-1 white-text">
+			<div class="card-panel red darken-1 white-text center">
 				<b>{{ session()->get('erro') }}</b>
 			</div>
 			@elseif(session()->has('sucesso'))
-			<div class="card-panel green darken-1 white-text">
+			<div class="card-panel green darken-1 white-text center">
 				<b>{{ session()->get('sucesso') }}</b>
 			</div>
 			@elseif($errors->any())
-			<div class="card-panel red darken-1 white-text">
+			<div class="card-panel red darken-1 white-text center">
 				<ul>
 					@foreach ($errors->all() as $error)
 					<li><b>{{ $error }}</b></li>
