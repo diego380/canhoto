@@ -26,3 +26,10 @@ Route::group(['prefix' => 'paineldecontrole','middleware'=>'auth'], function() {
 		'uses'=>'HomeController@painelDeControle'
 	]);
 });
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('users',[
+    	'as'=>'admin.users',
+    	'uses'=>'User\UserController@lista'
+    ]);
+});
