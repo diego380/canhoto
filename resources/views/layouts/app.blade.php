@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<nav class="light-green lighten-3">
+		<nav class="indigo">
 			<ul class="dropdown-content" id="comp-menu3">
 				<li><a href="#">Editar perfil</a></li>
 				<li class="active">
@@ -52,8 +52,8 @@
 	<main>
 		@yield('conteudo')
 	</main>
-	<footer class="page-footer light-green lighten-3">
-		<div class="footer-copyright light-green lighten-3">
+	<footer class="page-footer indigo">
+		<div class="footer-copyright indigo">
 			<div class="container">
             	<b class="black-text">© Diego Melo</b>
             	<a class="grey-text text-lighten-4 right" href="https://github.com/diego380/canhoto">

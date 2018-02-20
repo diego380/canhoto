@@ -5,11 +5,11 @@
 	<div class="col s12 m4">
 		<div class="card white">
 			<div class="card-content center">
-				<a href="#" title="" class="yellow-text">
+				<a href="#" title="" class="indigo-text">
 					<i class="large material-icons">account_box</i>
 				</a>
 			</div>
-			<div class="card-action light-green lighten-3 center">
+			<div class="card-action indigo center">
 				<a href="#" class="white-text"><b>Usuários</b></a>
 			</div>
 		</div>
@@ -17,11 +17,11 @@
 	<div class="col s12 m4">
 		<div class="card white">
 			<div class="card-content center">
-				<a href="#" title="" class="yellow-text">
+				<a href="#" title="" class="indigo-text">
 					<i class="large material-icons">indeterminate_check_box</i>
 				</a>
 			</div>
-			<div class="card-action light-green lighten-3 center">
+			<div class="card-action indigo center">
 				<a href="#" class="white-text"><b>Canhotos</b></a>
 			</div>
 		</div>
@@ -29,11 +29,11 @@
 	<div class="col s12 m4">
 		<div class="card white">
 			<div class="card-content center">
-				<a href="#" title="" class="yellow-text">
+				<a href="#" title="" class="indigo-text">
 					<i class="large material-icons">find_in_page</i>
 				</a>
 			</div>
-			<div class="card-action light-green lighten-3 center">
+			<div class="card-action indigo center">
 				<a href="#" class="white-text"><b>Nota Fiscais</b></a>
 			</div>
 		</div>

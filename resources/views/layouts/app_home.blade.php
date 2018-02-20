@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="row">
-		<div class="col s8 offset-s2">
+		<div class="col s12">
 			@if(session()->has('erro'))
 			<div class="card-panel red darken-1 white-text center">
 				<b>{{ session()->get('erro') }}</b>
