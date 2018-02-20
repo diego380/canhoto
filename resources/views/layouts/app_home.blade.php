@@ -7,11 +7,11 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link rel="icon" href="/img/favicon.png">
+	<link rel="icon" href="/img/logo2.png">
 </head>
 <body>
 	<div class="row">
-		<div class="col s12">
+		<div class="col s8 offset-s2">
 			@if(session()->has('erro'))
 			<div class="card-panel red darken-1 white-text center">
 				<b>{{ session()->get('erro') }}</b>
@@ -24,13 +24,13 @@
 			<div class="card-panel red darken-1 white-text center">
 				<ul>
 					@foreach ($errors->all() as $error)
-					<li><b>{{ $error }}</b></li>
+					<li><b>** {{ $error }}</b></li>
 					@endforeach
 				</ul>
 			</div>
+			@endif
 		</div>
 	</div>
-	@endif
 	@yield('conteudo')
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="/js/materialize.js"></script>

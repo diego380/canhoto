@@ -17,6 +17,10 @@ main {
 	width: 200px;
 }
 
+#login_logo{
+	width: 300px;
+}
+
 .icon-block {
 	padding: 0 15px;
 }
