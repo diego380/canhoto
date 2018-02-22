@@ -5,12 +5,12 @@
 	<div class="col s12 m4">
 		<div class="card white">
 			<div class="card-content center">
-				<a href="#" title="" class="grey-text">
+				<a href="{{ route('admin.users') }}" title="" class="grey-text">
 					<i class="large material-icons">account_box</i>
 				</a>
 			</div>
 			<div class="card-action grey center">
-				<a href="#" class="white-text"><b>Usuários</b></a>
+				<a href="{{ route('admin.users') }}" class="white-text"><b>Usuários</b></a>
 			</div>
 		</div>
 	</div>

@@ -29,7 +29,22 @@ Route::group(['prefix' => 'paineldecontrole','middleware'=>'auth'], function() {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('users',[
-    	'as'=>'admin.users',
+    	'as'=>'admin.users.lista',
     	'uses'=>'User\UserController@lista'
+    ]);
+
+    Route::get('users/{id}/edit',[
+        'as'=>'admin.users.edita',
+        'uses'=>'User\UserController@edita'
+    ]);
+
+    Route::put('users/{id}/update',[
+    	'as'=>'admin.user.atualiza',
+    	'uses'=>'User\UserController@atualiza'
+    ]);
+
+    Route::get('users/{id}/delete',[
+    	'as'=>'admin.user.apaga',
+    	'uses'=>'User\UserController@apaga'
     ]);
 });
