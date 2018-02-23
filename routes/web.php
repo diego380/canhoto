@@ -20,31 +20,38 @@ Route::get('/',[
 
 Auth::routes();
 
-Route::group(['prefix' => 'paineldecontrole','middleware'=>'auth'], function() {
+Route::group(['prefix' => 'index','middleware'=>'auth'], function() {
 	Route::get('', [
-		'as'=>'paineldecontrole',
+		'as'=>'index',
 		'uses'=>'HomeController@painelDeControle'
 	]);
 });
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'users'], function() {
+    Route::get('{id}/edit',[
+        'as'=>'auth.users.edita',
+        'uses'=>'User\UserController@edita'
+    ]);
+
+    Route::put('{id}/update',[
+        'as'=>'auth.users.atualiza',
+        'uses'=>'User\UserController@atualiza'
+    ]);
+});
+
+Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function() {
     Route::get('users',[
     	'as'=>'admin.users.lista',
     	'uses'=>'User\UserController@lista'
     ]);
 
-    Route::get('users/{id}/edit',[
-        'as'=>'admin.users.edita',
-        'uses'=>'User\UserController@edita'
-    ]);
-
-    Route::put('users/{id}/update',[
-    	'as'=>'admin.user.atualiza',
-    	'uses'=>'User\UserController@atualiza'
-    ]);
-
     Route::get('users/{id}/delete',[
-    	'as'=>'admin.user.apaga',
+    	'as'=>'admin.users.apaga',
     	'uses'=>'User\UserController@apaga'
+    ]);
+
+    Route::put('users/{id}/permissao',[
+        'as'=>'admin.users.permissao',
+        'uses'=>'User\UserController@alteraPermissao'
     ]);
 });

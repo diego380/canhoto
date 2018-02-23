@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('titulo',$user->name)
 @section('conteudo')
-<div id="login-page" class="row register_login">
+<div id="login-page" class="row">
 	<div class="container">
 		<div class="col s12">
-			@include('admin.user.form_edita')
+			@include('auth.form_edita')
 		</div>
 	</div>
 </div>

@@ -10,7 +10,7 @@ class HomeController extends Controller
 	public function index()
 	{
 		if (Auth::check()) {
-			return redirect('/paineldecontrole');
+			return redirect(route('index'));
 		}else{
 			return view('auth.login');
 		}

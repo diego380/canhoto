@@ -13,11 +13,11 @@
 	</div>
 	<div class="row">
 		<div class="input-field col m6 s12">
-			<input id="name" type="text" name="name" class="validate">
+			<input id="name" type="text" name="name" class="validate" required>
 			<label for="name">Nome</label>
 		</div>
 		<div class="input-field col m6 s12">
-			<input id="last_name" type="text" class="validate">
+			<input id="last_name" type="text" class="validate" name="last_name" required>
 			<label for="last_name">Sobrenome</label>
 		</div>
 	</div>
@@ -29,11 +29,11 @@
 	</div>
 	<div class="row">
 		<div class="input-field col m6 s12">
-			<input id="password" type="password" name="password" class="validate">
+			<input id="password" type="password" name="password" class="validate" required>
 			<label for="name">Senha</label>
 		</div>
 		<div class="input-field col m6 s12">
-			<input id="password-confirm" name="password_confirmation" type="password" class="validate">
+			<input id="password-confirm" name="password_confirmation" type="password" class="validate" required>
 			<label for="password-confirm">Confirme sua senha</label>
 		</div>
 	</div>

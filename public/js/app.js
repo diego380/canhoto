@@ -1,5 +1,5 @@
 $(document).ready(function(){
 	$(".button-collapse").sideNav();
-    $('.dropdown-button').dropdown();
-    $('.tooltipped').tooltip({delay: 50});
+	$('.dropdown-button').dropdown();
+	$('.tooltipped').tooltip({delay: 50});
 });
