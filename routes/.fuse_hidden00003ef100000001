@@ -22,9 +22,9 @@ Route::get('/',[
 
 Auth::routes();
 
-/*************USUARIOS AUTENTICADOS*************/
+/*************USUARIOS*************/
 
-Route::group(['prefix' => '','middleware'=>'auth'], function() {
+Route::group(['prefix' => '', 'middleware'=>'auth'], function() {
 
 	/*INDEX*/
 	Route::get('index', [
@@ -34,6 +34,7 @@ Route::group(['prefix' => '','middleware'=>'auth'], function() {
 
 	/*USUARIOS EDIÇÃO*/
 	Route::group(['prefix' => 'users'], function() {
+
 		Route::get('{id}/edit',[
 			'as'=>'auth.users.edita',
 			'uses'=>'User\UserController@edita'
@@ -44,8 +45,13 @@ Route::group(['prefix' => '','middleware'=>'auth'], function() {
 			'uses'=>'User\UserController@atualiza'
 		]);
 	});
-});
 
+	Route::group(['prefix' => 'canhotos'], function() {
+	    Route::get('users/{id}',[
+	    	'as'=>'canhotos.lista'
+	    ]);
+	});
+});
 
 /****************ADMIN************/
 
