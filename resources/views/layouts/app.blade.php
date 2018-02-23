@@ -36,6 +36,7 @@
 				<li class="brand-logo">Logo</li>
 				<a href="#" class="button-collapse" data-activates="mobile-menu"><i class="material-icons" id="hamburger-icon">menu</i></a>
 				<ul class="right hide-on-med-and-down" id="comp-menu">
+					<li><a href="{{ url('index') }}"><i class="material-icons left">assignment</i>Painel de Controle</a></li>
 					<li class="active">
 						<a href="#" data-activates="comp-menu3" class="dropdown-button">
 							<i class="material-icons left">account_circle</i>{{ Auth::user()->name }}
@@ -44,6 +45,7 @@
 					</li>
 				</ul>
 				<ul class="side-nav" id="mobile-menu">
+					<li><a href="{{ url('index') }}"><i class="material-icons left">assignment</i>Painel de Controle</a></li>
 					<li class="active">
 						<a href="#" data-activates="mob-menu3" class="dropdown-button">
 							<i class="material-icons left">account_circle</i>{{ Auth::user()->name }}
