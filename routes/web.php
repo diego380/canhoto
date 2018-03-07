@@ -44,6 +44,14 @@ Route::group(['prefix' => '','middleware'=>'auth'], function() {
 			'uses'=>'User\UserController@atualiza'
 		]);
 	});
+
+	/*NOTA FISCAL*/
+	Route::group(['prefix' => 'notafiscal'], function() {
+	    Route::get('', [
+	    	'as'=>'notafiscal',
+	    	'uses'=>'NotaFiscal\NotaFiscalController@lista'
+	    ]);
+	});
 });
 
 
