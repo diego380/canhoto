@@ -14,15 +14,6 @@ class NotaFiscalController extends Controller
     {
     	$url = file_get_contents('http://env-8638639.jelasticlw.com.br/restful/pedido/ALAGOAS/buscarPedido/315333');
     	$itensNotaFiscal = json_decode($url,true);
-    	$qtdItens = count($itensNotaFiscal);
-    	$cidade = ucwords(strtolower($itensNotaFiscal[0]['cidadeCliente']));
-       	$dataPedido = date("d/m/Y",strtotime($itensNotaFiscal[0]['dataPedido']));
-    	return view('notafiscal.lista',[
-    		'itensNotaFiscal'=>$itensNotaFiscal,
-    		'qtdItens'=>$qtdItens,
-    		'cidade'=>$cidade,
-    		'dataPedido'=>$dataPedido
-    	]);
-
+    	return view('notafiscal.lista',['itensNotaFiscal'=>$itensNotaFiscal]);
     }
 }

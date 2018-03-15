@@ -3,20 +3,24 @@
 @section('conteudo')
 
 
-
-<!-- 
-@forelse($itensNotaFiscal as $itemNotaFiscal)
-
-	<h6>{{ $itemNotaFiscal['nomeProduto'] }}</h6>
-@empty
-
-	<h6>Nada</h6>
-
-@endforelse
- -->
-<p>Total de produtos: {{ $qtdItens }}</p>
-<p>Data do pedido: {{ $dataPedido }}</p>
-<p>Cidade: {{ $cidade }}</p>
+<table class="bordered">
+	<th>
+		<td><b>Razão</b></td>
+		<td><b>CNPJ</b></td>
+		<td><b>Data do pedido</b></td>
+		<td><b>Qtd Produtos</b></td>
+		<td><b>Data de emissão NF</b></td>
+	</th>
+	<tr>
+		<td></td>
+		<td>{{ $itensNotaFiscal[0]['nomeCliente'] }}</td>
+		<td>*cnpj*</td>
+		<td>{{ date("d/m/Y",strtotime($itensNotaFiscal[0]['dataPedido'])) }}</td>
+		<td>{{ count($itensNotaFiscal) }}</td>
+		<td>*dataEmissao*</td>
+	</tr>
+</table>
+<br><br>
 <table class="bordered">
 	<thead>
 		<tr>
@@ -35,7 +39,9 @@
 			<td>{{ $itemNotaFiscal['nomeFornecedor'] }}</td>
 		</tr>
 		@empty
-
+		<tr>
+			<td>Está nota fiscal não possui nenhum produto!</td>
+		</tr>
 		@endforelse
 	</tbody>
 </table>
