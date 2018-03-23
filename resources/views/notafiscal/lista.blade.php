@@ -17,16 +17,14 @@
 	<br>
 	<table class="bordered">
 		<th>
-			<td><b>Data do pedido</b></td>
 			<td><b>Qtd Produtos</b></td>
 			<td><b>Data de emissão NF</b></td>
 			<td><b>Chave de acesso</b></td>
 		</th>
 		<tr>
 			<td></td>
+			<td>{{ $totalItens }}</td>
 			<td>{{ date("d/m/Y",strtotime($itensNotaFiscal[0]['dataPedido'])) }}</td>
-			<td>{{ count($itensNotaFiscal) }}</td>
-			<td>*dataEmissao*</td>
 			<td>*chavedeacesso*</td>
 		</tr>
 	</table>
@@ -41,26 +39,26 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for($item = 0;$item < count($itensNotaFiscal); $item++)
+			@foreach($itensNotaFiscal as $itemNotaFiscal)
 			<tr>
-				<td>{{ $itensNotaFiscal[$item]['codigoProduto'] }}</td>
-				<td>{{ $itensNotaFiscal[$item]['nomeProduto'] }}</td>
-				<td>{{ $itensNotaFiscal[$item]['quantidadeNotaFiscal'] }}</td>
-				<td>{{ $itensNotaFiscal[$item]['nomeFornecedor'] }}</td>
+				<td>{{ $itemNotaFiscal['codigoProduto'] }}</td>
+				<td>{{ $itemNotaFiscal['nomeProduto'] }}</td>
+				<td>{{ $itemNotaFiscal['quantidadeNotaFiscal'] }}</td>
+				<td>{{ $itemNotaFiscal['nomeFornecedor'] }}</td>
 			</tr>
-			@endfor
+			@endforeach
 		</tbody>
 	</table>
 </div>
 <br>
+@if($totalPaginas>1)
 <div class="center">
-	@for($pagina = 0; $pagina < $numeroPaginacao; $pagina++)
-		<a href="{{ url('notafiscal/alagoas/315625?pagina='.$pagina) }}" class="waves-effect waves-light btn">{{ $pagina }}</a>
+	@for($paginacao=1;$paginacao<=$totalPaginas;$paginacao++)
+	<a href="{{ url('notafiscal/alagoas/'.$itensNotaFiscal[0]['numeroNotaFiscal'].'?pagina='.$paginacao) }}" class="btn">
+		{{ $paginacao }}
+	</a>
 	@endfor
 </div>
 <br>
-
-
-
-
+@endif
 @endsection

@@ -13,21 +13,21 @@ class NotaFiscalController extends Controller
 {
     public function listaItensPorNotaFiscal($estado,$numeroNota)
     {
+    	/*315333*/
     	$url = file_get_contents('http://env-8638639.jelasticlw.com.br/restful/pedido/'.strtoupper($estado).'/buscarPedido/'.$numeroNota);
-    	$itensNotaFiscal = json_decode($url,true);
 
-    	if (is_null(Input::get('pagina'))) {
-    		$pagina = 1;
-    	}else{
-    		$pagina = Input::get('pagina');
-    	}
+    	$pagina = (!isset($_GET['pagina'])?1:$_GET['pagina']);
     	$itensPorPagina = 10;
-    	$numeroPaginacao = ceil(count($itensNotaFiscal)/$itensPorPagina);
+    	$offset = ($pagina - 1)*$itensPorPagina;
+	   	$totalItens = count(json_decode($url,true));
+    	$totalPaginas = ceil($totalItens/$itensPorPagina);
+    	$itensNotaFiscal = array_slice(json_decode($url,true), $offset, $itensPorPagina);
 
     	return view('notafiscal.lista',[
     		'itensNotaFiscal'=>$itensNotaFiscal,
     		'itensPorPagina'=>$itensPorPagina,
-    		'numeroPaginacao'=>$numeroPaginacao
+    		'totalItens'=>$totalItens,
+    		'totalPaginas'=>$totalPaginas
     	]);
     }
 }
