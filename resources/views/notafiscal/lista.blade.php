@@ -54,7 +54,7 @@
 @if($totalPaginas>1)
 <div class="center">
 	@for($paginacao=1;$paginacao<=$totalPaginas;$paginacao++)
-	<a href="{{ url('notafiscal/alagoas/'.$itensNotaFiscal[0]['numeroNotaFiscal'].'?pagina='.$paginacao) }}" class="btn">
+	<a href="{{ url('notafiscal?numeroNota='.$itensNotaFiscal[0]['numeroNotaFiscal'].'&estado='.$estado.'&pagina='.$paginacao) }}" class="btn">
 		{{ $paginacao }}
 	</a>
 	@endfor

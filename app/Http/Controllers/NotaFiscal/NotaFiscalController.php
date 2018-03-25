@@ -11,23 +11,32 @@ use Illuminate\Support\Facades\Input;
 
 class NotaFiscalController extends Controller
 {
-    public function listaItensPorNotaFiscal($estado,$numeroNota)
+    public function listaItensPorNotaFiscal()
     {
     	/*315333*/
-    	$url = file_get_contents('http://env-8638639.jelasticlw.com.br/restful/pedido/'.strtoupper($estado).'/buscarPedido/'.$numeroNota);
 
-    	$pagina = (!isset($_GET['pagina'])?1:$_GET['pagina']);
-    	$itensPorPagina = 10;
-    	$offset = ($pagina - 1)*$itensPorPagina;
-	   	$totalItens = count(json_decode($url,true));
-    	$totalPaginas = ceil($totalItens/$itensPorPagina);
-    	$itensNotaFiscal = array_slice(json_decode($url,true), $offset, $itensPorPagina);
+        if (Input::get('estado') == null || Input::get('numeroNota') == null) {
+            return redirect()->back()->with('erro','O campo ESTADO ou NOTA FISCAL está vazio!');
+        } else{
+            $estado = Input::get('estado');
+            $numeroNota = Input::get('numeroNota');
 
-    	return view('notafiscal.lista',[
-    		'itensNotaFiscal'=>$itensNotaFiscal,
-    		'itensPorPagina'=>$itensPorPagina,
-    		'totalItens'=>$totalItens,
-    		'totalPaginas'=>$totalPaginas
-    	]);
+            $url = file_get_contents('http://env-8638639.jelasticlw.com.br/restful/pedido/'.strtoupper($estado).'/buscarPedido/'.$numeroNota);
+
+            $pagina = ((Input::get('pagina')==null)?1:Input::get('pagina'));
+            $itensPorPagina = 15;
+            $offset = ($pagina - 1)*$itensPorPagina;
+            $totalItens = count(json_decode($url,true));
+            $totalPaginas = ceil($totalItens/$itensPorPagina);
+            $itensNotaFiscal = array_slice(json_decode($url,true), $offset, $itensPorPagina);
+
+            return view('notafiscal.lista',[
+                'estado'=>$estado,
+                'itensNotaFiscal'=>$itensNotaFiscal,
+                'itensPorPagina'=>$itensPorPagina,
+                'totalItens'=>$totalItens,
+                'totalPaginas'=>$totalPaginas
+            ]);
+        }
     }
 }

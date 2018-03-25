@@ -47,7 +47,7 @@ Route::group(['prefix' => '','middleware'=>'auth'], function() {
 
 	/*NOTA FISCAL*/
 	Route::group(['prefix' => 'notafiscal'], function() {
-	    Route::get('{estado}/{numeroNota}', [
+	    Route::get('', [
 	    	'as'=>'notafiscal',
 	    	'uses'=>'NotaFiscal\NotaFiscalController@listaItensPorNotaFiscal'
 	    ]);
