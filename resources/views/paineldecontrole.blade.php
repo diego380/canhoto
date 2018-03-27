@@ -55,12 +55,12 @@
 	<div class="col s12 m6">
 		<div class="card white">
 			<div class="card-content center">
-				<a href="#" title="" class="grey-text">
+				<a href="#modalNotafiscal" title="" class="grey-text modal-trigger">
 					<i class="large material-icons">find_in_page</i>
 				</a>
 			</div>
 			<div class="card-action grey center">
-				<a href="#" class="white-text"><b>Nota Fiscais</b></a>
+				<a href="#modalNotafiscal" class="white-text modal-trigger"><b>Nota Fiscais</b></a>
 			</div>
 		</div>
 	</div>

@@ -51,6 +51,11 @@ Route::group(['prefix' => '','middleware'=>'auth'], function() {
 	    	'as'=>'notafiscal',
 	    	'uses'=>'NotaFiscal\NotaFiscalController@listaItensPorNotaFiscal'
 	    ]);
+
+	    Route::post('canhoto/salva',[
+	    	'as'=>'notafiscal.canhoto.salva',
+	    	'uses'=>'NotaFiscal\NotaFiscalController@salvaCanhotoPorNotaFiscal'
+	    ]);
 	});
 });
 

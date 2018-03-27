@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class NotaFiscal extends Model
 {
     protected $fillable = [
-    	'cnpj',
-    	'razao',
-    	'nota_fiscal',
-    	'data_emissao',
-    	'user_id'
+    	'numeroNota',
+        'path',
+        'user_id',
+        'extensao'
     ];
 
     public function user()

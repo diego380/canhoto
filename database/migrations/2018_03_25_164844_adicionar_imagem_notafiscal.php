@@ -14,8 +14,10 @@ class AdicionarImagemNotafiscal extends Migration
     public function up()
     {
         Schema::table('nota_fiscals', function (Blueprint $table) {
-            $table->string('numeroNota');
-            $table->string('imagem');
+            $table->string('numeroNota')->unique()->after('id');
+            $table->string('path')->after('numeroNota');
+            $table->string('extensao')->after('path');
+
         });
     }
 
@@ -28,7 +30,8 @@ class AdicionarImagemNotafiscal extends Migration
     {
         Schema::table('nota_fiscals', function (Blueprint $table) {
             $table->dropColumn('numeroNota');
-            $table->dropColumn('imagem');
+            $table->dropColumn('path');
+            $table->dropColumn('extensao');
         });
     }
 }

@@ -5,7 +5,3 @@ $(document).ready(function(){
 	$('.tooltipped').tooltip({delay: 50});
 	$('.modal').modal();
 });
-
-function buscaNotaFiscal() {
-    document.getElementById("buscaNotaFiscal").submit();
-}
