@@ -5,8 +5,10 @@ namespace App\Http\Controllers\NotaFiscal;
 use App\Http\Controllers\Controller;
 use App\Model\NotaFiscal\NotaFiscal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 
 //TO DO: adicionar CNPJ e data de emissao no json
 
@@ -76,7 +78,11 @@ class NotaFiscalController extends Controller
                 $extensaoArquivo = $arquivo->getClientOriginalExtension();
                 $nomeArquivo = $numeroNota.".".$extensaoArquivo;
                 $path = 'arquivos/'.$estado.'/';
-                $pathCompleto = '/'.$path.$nomeArquivo;
+                $pathCompletoReal = public_path().DIRECTORY_SEPARATOR.$path.$nomeArquivo;
+                $pathCompleto = DIRECTORY_SEPARATOR.$path.$nomeArquivo;
+
+                
+
 
                 if(!File::exists($path)){
                     File::makeDirectory($path);
@@ -90,6 +96,25 @@ class NotaFiscalController extends Controller
                 $canhotoNotaFiscal->path = $pathCompleto;
                 $canhotoNotaFiscal->extensao = $extensaoArquivo;
                 $canhotoNotaFiscal->save();
+
+
+                $data = array(
+                    'numeroNota'=>$numeroNota,
+                    'from'=>'ddmelo.dev@gmail.com',
+                    'nameFrom'=>'dMelo dEv',
+                    'to'=>Auth::user()->email,
+                    'nameTo' => Auth::user()->name.' '.Auth::user()->last_name,
+                    'subject'=>'Canhoto Aqui - NF: '.$numeroNota,
+                    'attach'=>$pathCompletoReal,
+                );
+
+                Mail::send('email.email', $data, function ($message) use ($data) {
+                    $message->from($data['from'], $data['nameFrom']);
+                    $message->to($data['to'], $data['nameTo']);
+                    $message->subject($data['subject']);
+                    $message->attach($data['attach']);
+                });
+
 
                 return redirect()->back()->with('sucesso','Canhoto da nota '.$numeroNota.' adicionado com sucesso!');
             }
